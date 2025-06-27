@@ -15,7 +15,7 @@ const protectRoute = async (req, res, next) => {
 
     // find the user
     // const user = await User.findeOne({ _id: decoded.userId });
-    const user = await User.findeOne(decoded.userId).select("-password");
+    const user = await User.findOne(decoded.userId).select("-password");
     if (!user)
       return res.status(401).json({ message: "Token incorrect Valid" });
     req.user = user;
