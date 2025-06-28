@@ -10,7 +10,8 @@ const router = express.Router();
 router.post("/", protectRoute, async (req, res) => {
   try {
     const { title, caption, rating, image } = req.body;
-    if (!title || !caption || !rating || !image) {
+    // if (!title || !caption || !rating || !image) {
+    if (!title || !caption || !rating) {
       return res.status(400).json({ message: "Please Provide All Fields!" });
     }
 
