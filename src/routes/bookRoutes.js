@@ -9,9 +9,16 @@ const router = express.Router();
 // create book
 router.post("/", protectRoute, async (req, res) => {
   try {
+<<<<<<< HEAD
     const { title, caption, rating, image } = req.body;
 
     if (!title || !caption || !rating || !image) {
+=======
+    // const { title, caption, rating, image } = req.body;
+    const { title, caption, rating } = req.body;
+    // if (!title || !caption || !rating || !image) {
+    if (!title || !caption || !rating) {
+>>>>>>> ffb7f3737788359c18d8aae5dadd4166f48f0537
       return res.status(400).json({ message: "Please Provide All Fields!" });
     }
 
