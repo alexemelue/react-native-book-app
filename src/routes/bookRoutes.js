@@ -16,12 +16,13 @@ router.post("/", protectRoute, async (req, res) => {
     }
 
     // upload the image to cloudinary
-    const uploadResponse = await cloudinary.uploader.upload(image, {
-      resource_type: "image",
-      chunk_size: 120000000, // 60MB chunk size (adjust as needed)
-      public_id: "my_large_file",
-    });
-    const imageUrl = uploadResponse.secure_url;
+    // const uploadResponse = await cloudinary.uploader.upload(image, {
+    //   resource_type: "image",
+    //   chunk_size: 120000000, // 60MB chunk size (adjust as needed)
+    //   public_id: "my_large_file",
+    // });
+    // const uploadResponse = await cloudinary.uploader.upload(image);
+    // const imageUrl = uploadResponse.secure_url;
     // save to the database
     const newBook = new Book({
       title,
