@@ -92,7 +92,7 @@ router.delete("/:id", async (req, res) => {
 
     // delete the image from cloudinary
     //res/cloudinary.com/delrm6auto/image/upload/v1741568358/qyup61vejflxx8igv10.png
-    https: if (book.image && book.image.includes("cloudinary")) {
+    if (book.image && book.image.includes("cloudinary")) {
       try {
         const publicId = book.image.split("/").pop().split(".")[0];
         await cloudinary.uploader.destroy(publicId);
