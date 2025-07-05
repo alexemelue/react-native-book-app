@@ -85,6 +85,7 @@ router.get("/user", protectRoute, async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
+    console.log(book);
     if (!book) return res.status(404).json({ message: "Book Not Found!" });
     // check if user is the creator of the book
     if (book.user.toString() !== req.user._id.toString())
