@@ -84,14 +84,14 @@ router.get("/user", protectRoute, async (req, res) => {
 // delete books
 router.delete("/:id", async (req, res) => {
   try {
-    const book = await Book.findOne(req.params.id);
+    const book = await Book.findById(req.params.id);
     if (!book) return res.status(404).json({ message: "Book Not Found!" });
     // check if user is the creator of the book
     if (book.user.toString() !== req.user._id.toString())
       return res.status(401).json({ message: "Authorized!" });
 
     // delete the image from cloudinary
-    //res/cloudinary.com/delrm6auto/image/upload/v1741568358/qyup61vejflxx8igv10.png
+    //https://res.cloudinary.com/delrm6auto/image/upload/v1741568358/qyup61vejflxx8igv10.png
     if (book.image && book.image.includes("cloudinary")) {
       try {
         const publicId = book.image.split("/").pop().split(".")[0];
