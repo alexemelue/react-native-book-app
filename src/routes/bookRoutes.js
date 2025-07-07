@@ -32,7 +32,7 @@ router.post("/", protectRoute, async (req, res) => {
       user: req.user._id,
     });
     newBook.save();
-
+    console.log(req.user._id);
     res.status(201).json(newBook);
   } catch (error) {
     console.log("Error in Creating Book", error);
