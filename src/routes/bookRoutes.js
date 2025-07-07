@@ -23,6 +23,7 @@ router.post("/", protectRoute, async (req, res) => {
     // });
     const uploadResponse = await cloudinary.uploader.upload(image);
     const imageUrl = uploadResponse.secure_url;
+    console.log(req.user._id, imageUrl);
     // save to the database
     const newBook = new Book({
       title,
@@ -32,7 +33,7 @@ router.post("/", protectRoute, async (req, res) => {
       user: req.user._id,
     });
     newBook.save();
-    console.log(req.user._id);
+    console.log(newBook);
     res.status(201).json(newBook);
   } catch (error) {
     console.log("Error in Creating Book", error);
