@@ -1633,7 +1633,7 @@ export default function Create() {
               />
             </View>
 
-            <TouchableOpacity
+            {/* <TouchableOpacity
               style={[styles.submitButton, loading && styles.disabledButton]}
               onPress={handleSubmit}
               disabled={loading}
@@ -1645,7 +1645,21 @@ export default function Create() {
                   Submit Recommendation
                 </Text>
               )}
-            </TouchableOpacity>
+            </TouchableOpacity> */}
+            <TouchableOpacity 
+  style={[styles.submitButton || styles.button, loading && styles.disabledButton]} 
+  onPress={handleSubmit}
+  disabled={loading}
+>
+  {loading ? (
+    <ActivityIndicator color="#fff" />
+  ) : (
+    <Text style={styles.submitButtonText || styles.buttonText}>
+      Submit Recommendation
+    </Text>
+  )}
+</TouchableOpacity>
+
           </View>
         </View>
       </ScrollView>
